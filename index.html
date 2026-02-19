@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Paradise Beach Club Carriacou – Five-Star Beachfront Dining. Opening Soon in Carriacou, Grenada." />
+  <title>Paradise Beach Club | Coming Soon</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:   #036ba8;
+      --blue-dark: #025a8e;
+      --white:  #ffffff;
+      --light:  #f4f8fb;
+      --text:   #1a1a2e;
+      --muted:  #6b7a8d;
+      --radius: 4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* ── Thin top accent bar ── */
+    .accent-bar {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue) 0%, #54b4e8 100%);
+    }
+
+    /* ── Header / Brand ── */
+    header {
+      text-align: center;
+      padding: 3rem 1.5rem 1rem;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .brand-name span {
+      color: var(--blue);
+    }
+
+    .brand-location {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.45rem;
+    }
+
+    .divider-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--blue);
+      border-radius: 50%;
+      vertical-align: middle;
+      margin: 0 0.6em;
+      opacity: 0.6;
+    }
+
+    /* ── Main hero ── */
+    main {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem 0;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 12vw, 7rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero-subheadline {
+      font-size: clamp(0.8rem, 2.5vw, 1rem);
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Wave visual ── */
+    .wave-section {
+      width: 100%;
+      margin-top: 3rem;
+      line-height: 0;
+    }
+
+    .wave-section svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ── Palm icon strip ── */
+    .icon-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4rem;
+      padding: 2rem 1.5rem;
+      background: var(--light);
+      width: 100%;
+    }
+
+    .icon-strip i {
+      font-size: 1.6rem;
+      color: var(--blue);
+      opacity: 0.55;
+    }
+
+    /* ── Opening timeline ── */
+    .timeline {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .timeline-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+
+    .progress-track {
+      position: relative;
+      height: 2px;
+      background: #e0e9f0;
+      border-radius: 99px;
+      overflow: hidden;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .progress-fill {
+      position: absolute;
+      left: 0; top: 0;
+      height: 100%;
+      width: 72%;
+      background: linear-gradient(90deg, var(--blue), #54b4e8);
+      border-radius: 99px;
+    }
+
+    .progress-pct {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    /* ── Notify Me ── */
+    .notify {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--light);
+      width: 100%;
+    }
+
+    .notify-title {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .notify-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .notify-form {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .notify-form input[type="email"] {
+      flex: 1 1 220px;
+      padding: 0.85rem 1.2rem;
+      border: 1.5px solid #d0dce8;
+      border-radius: var(--radius);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--white);
+    }
+
+    .notify-form input[type="email"]:focus {
+      border-color: var(--blue);
+    }
+
+    .notify-form button {
+      flex: 0 0 auto;
+      padding: 0.85rem 1.8rem;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .notify-form button:hover {
+      background: var(--blue-dark);
+    }
+
+    .notify-msg {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--blue);
+      min-height: 1.2em;
+    }
+
+    /* ── Social ── */
+    .social {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .social-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.4rem;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border: 1.5px solid #d0dce8;
+      border-radius: 50%;
+      color: var(--text);
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .social-icons a:hover {
+      border-color: var(--blue);
+      color: var(--white);
+      background: var(--blue);
+    }
+
+    /* ── Contact ── */
+    .contact {
+      text-align: center;
+      padding: 2rem 1.5rem 3rem;
+      background: var(--light);
+      width: 100%;
+    }
+
+    .contact-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .contact-links a i {
+      color: var(--blue);
+      font-size: 1rem;
+    }
+
+    .contact-links a:hover {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    /* ── Footer ── */
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 1.6rem 1.5rem;
+      border-top: 1px solid #e8edf2;
+    }
+
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: #eaf3fa;
+      border: 1px solid #c6dff0;
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Responsive tweaks ── */
+    @media (max-width: 480px) {
+      .notify-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .notify-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="accent-bar"></div>
+
+  <!-- ── 1. Header / Brand ── -->
+  <header>
+    <p class="brand-location">
+      <span class="divider-dot"></span>
+      Carriacou<span class="divider-dot"></span>Grenada
+      <span class="divider-dot"></span>
+    </p>
+    <h1 class="brand-name">Paradise <span>Beach</span> Club</h1>
+  </header>
+
+  <main>
+
+    <!-- ── 2. Hero / Main Message ── -->
+    <section class="hero" aria-label="Main message">
+      <p class="hero-label">Exclusively Beachfront</p>
+      <h2 class="hero-headline">Coming<br>Soon</h2>
+      <p class="hero-subheadline">Five-Star Beachfront Dining</p>
+      <p class="hero-tagline">We're putting the final touches on something extraordinary.</p>
+    </section>
+
+    <!-- ── 3. Visual element – inline SVG wave ── -->
+    <div class="wave-section" aria-hidden="true">
+      <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#036ba8" stop-opacity="0.12"/>
+            <stop offset="50%"  stop-color="#54b4e8" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#036ba8" stop-opacity="0.12"/>
+          </linearGradient>
+        </defs>
+        <!-- back wave -->
+        <path d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z" fill="url(#waveGrad)"/>
+        <!-- front wave -->
+        <path d="M0,100 C200,60 400,140 600,100 C800,60 1000,140 1200,100 C1300,80 1380,110 1440,100 L1440,160 L0,160 Z" fill="#036ba8" fill-opacity="0.08"/>
+        <!-- subtle waterline -->
+        <path d="M0,108 C360,90 720,126 1080,108 C1260,99 1380,112 1440,108" stroke="#036ba8" stroke-width="1" stroke-opacity="0.25" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Beach / resort icon strip -->
+    <div class="icon-strip" aria-hidden="true">
+      <i class="fas fa-umbrella-beach"></i>
+      <i class="fas fa-fish"></i>
+      <i class="fas fa-martini-glass-citrus"></i>
+      <i class="fas fa-sailboat"></i>
+      <i class="fas fa-sun"></i>
+    </div>
+
+    <!-- ── 4. Opening Timeline ── -->
+    <section class="timeline" aria-label="Opening timeline">
+      <p class="timeline-label">Opening</p>
+      <p class="timeline-date">Summer 2025</p>
+      <div class="progress-track" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Preparation progress">
+        <div class="progress-fill"></div>
+      </div>
+      <p class="progress-pct">Almost ready</p>
+    </section>
+
+    <!-- ── 5. Notify Me ── -->
+    <section class="notify" aria-label="Email notification sign-up">
+      <p class="notify-title">Be the first to know when we open</p>
+      <p class="notify-sub">Reserve your exclusive early-access invitation.</p>
+      <form class="notify-form" id="notifyForm" novalidate>
+        <input
+          type="email"
+          id="notifyEmail"
+          name="email"
+          placeholder="Your email address"
+          autocomplete="email"
+          required
+          aria-label="Email address"
+        />
+        <button type="submit">Notify Me</button>
+      </form>
+      <p class="notify-msg" id="notifyMsg" aria-live="polite"></p>
+    </section>
+
+    <!-- ── 6. Social ── -->
+    <section class="social" aria-label="Social media">
+      <p class="social-label">Follow our journey</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/paradisebeachclubcarriacou" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/paradisebeachclubcarriacou" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 7. Contact ── -->
+    <section class="contact" aria-label="Contact information">
+      <p class="contact-label">For Inquiries</p>
+      <div class="contact-links">
+        <a href="mailto:info@paradisebeachclub.com" aria-label="Email us">
+          <i class="fas fa-envelope"></i>
+          info@paradisebeachclub.com
+        </a>
+        <!-- TODO: Replace the WhatsApp number with the actual contact number before going live -->
+        <a href="https://wa.me/14735555555" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp Us
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── 8. Footer ── -->
+  <footer>
+    <div class="footer-badge">
+      <i class="fas fa-hammer"></i>
+      Under Construction
+    </div>
+    <p class="footer-copy">
+      &copy; <span id="year"></span> Paradise Beach Club Carriacou. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Auto-update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple notify-me form feedback (front-end only)
+    document.getElementById('notifyForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const emailInput = document.getElementById('notifyEmail');
+      const msg = document.getElementById('notifyMsg');
+      const emailVal = emailInput.value.trim();
+
+      if (!emailInput.validity.valid || !emailVal) {
+        msg.style.color = '#c0392b';
+        msg.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      msg.style.color = '#036ba8';
+      msg.textContent = '✓ You\'re on the list! We\'ll be in touch.';
+      emailInput.value = '';
+    });
+  </script>
+
+</body>
+</html>
