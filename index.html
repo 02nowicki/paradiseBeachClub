@@ -382,7 +382,116 @@
       color: var(--blue);
       border-bottom-color: var(--blue);
     }
-
+    /* -- Waves Movement -- */
+    .wave-section {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    
+    .wave-section svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      animation: waveFlow 8s ease-in-out infinite alternate;
+    }
+    
+    /* Individual wave animations with different timing for natural movement */
+    .wave-section svg path:nth-of-type(1) {
+      animation: waveDrift 12s ease-in-out infinite alternate;
+    }
+    
+    .wave-section svg path:nth-of-type(2) {
+      animation: waveRipple 7s ease-in-out infinite alternate;
+    }
+    
+    .wave-section svg path:nth-of-type(3) {
+      animation: waterline 10s ease-in-out infinite alternate;
+    }
+    
+    @keyframes waveFlow {
+      0% {
+        transform: translateX(0) scale(1.01, 1);
+      }
+      100% {
+        transform: translateX(-2%) scale(1.02, 1.01);
+      }
+    }
+    
+    @keyframes waveDrift {
+      0% {
+        transform: translateY(0) scale(1.01, 1);
+        d: path("M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z");
+      }
+      50% {
+        transform: translateY(-3px) scale(1.02, 1.01);
+        d: path("M0,75 C250,130 490,30 720,75 C950,130 1190,30 1440,75 L1440,160 L0,160 Z");
+      }
+      100% {
+        transform: translateY(3px) scale(0.99, 0.99);
+        d: path("M0,85 C230,150 470,10 720,85 C970,150 1210,10 1440,85 L1440,160 L0,160 Z");
+      }
+    }
+    
+    @keyframes waveRipple {
+      0% {
+        transform: translateX(0) translateY(0);
+        d: path("M0,100 C200,60 400,140 600,100 C800,60 1000,140 1200,100 C1300,80 1380,110 1440,100 L1440,160 L0,160 Z");
+      }
+      33% {
+        transform: translateX(-1%) translateY(-2px);
+        d: path("M0,98 C210,55 390,145 590,102 C810,55 1010,145 1210,98 C1310,78 1370,112 1440,98 L1440,160 L0,160 Z");
+      }
+      66% {
+        transform: translateX(1%) translateY(2px);
+        d: path("M0,102 C190,65 410,135 610,98 C790,65 990,135 1190,102 C1290,82 1390,108 1440,102 L1440,160 L0,160 Z");
+      }
+      100% {
+        transform: translateX(0) translateY(0);
+        d: path("M0,100 C200,60 400,140 600,100 C800,60 1000,140 1200,100 C1300,80 1380,110 1440,100 L1440,160 L0,160 Z");
+      }
+    }
+    
+    @keyframes waterline {
+      0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0.25;
+      }
+      50% {
+        transform: translateX(-1.5%) translateY(-1px);
+        opacity: 0.35;
+      }
+      100% {
+        transform: translateX(1.5%) translateY(1px);
+        opacity: 0.15;
+      }
+    }
+    
+    /* Optional: Add a subtle shimmer effect */
+    @keyframes gradientShift {
+      0% {
+        stop-color: #036ba8;
+        stop-opacity: 0.12;
+      }
+      50% {
+        stop-color: #3f9fd9;
+        stop-opacity: 0.18;
+      }
+      100% {
+        stop-color: #036ba8;
+        stop-opacity: 0.12;
+      }
+    }
+    
+    /* Add this if you want the gradient to shift colors subtly */
+    .wave-section stop {
+      animation: gradientShift 10s ease-in-out infinite;
+    }
+    
+    .wave-section stop:nth-of-type(2) {
+      animation-delay: -3s;
+    }
     /* ── Footer ── */
     footer {
       width: 100%;
@@ -423,6 +532,7 @@
         width: 100%;
       }
     }
+    
   </style>
 </head>
 <body>
@@ -480,7 +590,7 @@
     <!-- ── 4. Opening Timeline ── -->
     <section class="timeline" aria-label="Opening timeline">
       <p class="timeline-label">Opening</p>
-      <p class="timeline-date">Summer 2025</p>
+      <p class="timeline-date">Spring 2026</p>
       <div class="progress-track" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Preparation progress">
         <div class="progress-fill"></div>
       </div>
@@ -510,11 +620,14 @@
     <section class="social" aria-label="Social media">
       <p class="social-label">Follow our journey</p>
       <div class="social-icons">
-        <a href="https://www.instagram.com/paradisebeachclubcarriacou" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/paradisebeachclubcarriacou/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/paradisebeachclubcarriacou" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a href="https://www.facebook.com/share/1E7VPcqbAz" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.tiktok.com/@paradisecarriacou" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
         </a>
       </div>
     </section>
@@ -528,9 +641,9 @@
           info@paradisebeachclub.com
         </a>
         <!-- TODO: Replace the WhatsApp number with the actual contact number before going live -->
-        <a href="https://wa.me/14735555555" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <a href="https://wa.me/14734040415" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
           <i class="fab fa-whatsapp"></i>
-          WhatsApp Us
+          WhatsApp Us (+1 473-404-0415)
         </a>
       </div>
     </section>
