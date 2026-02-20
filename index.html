@@ -392,51 +392,76 @@
     
     .wave-section svg {
       display: block;
-      width: 100%;
+      width: 120%;
+      max-width: none;
       height: auto;
-      animation: waveFlow 8s ease-in-out infinite alternate;
+      margin-left: -10%;
+      animation: waveFlow 6s ease-in-out infinite alternate;
     }
     
-    /* Individual wave animations with different timing for natural movement */
-    .wave-section svg path:nth-of-type(1) {
-      animation: waveDrift 12s ease-in-out infinite alternate;
+    /* All three waves with different animations */
+    .wave-section svg path:nth-of-type(1) { /* Top wave (highest) */
+      animation: waveTop 8s ease-in-out infinite alternate;
     }
     
-    .wave-section svg path:nth-of-type(2) {
-      animation: waveRipple 7s ease-in-out infinite alternate;
+    .wave-section svg path:nth-of-type(2) { /* Middle wave */
+      animation: waveMiddle 5s ease-in-out infinite alternate;
     }
     
-    .wave-section svg path:nth-of-type(3) {
-      animation: waterline 10s ease-in-out infinite alternate;
+    .wave-section svg path:nth-of-type(3) { /* Bottom wave (front) */
+      animation: waveBottom 6.5s ease-in-out infinite alternate;
+    }
+    
+    .wave-section svg path:nth-of-type(4) { /* Waterline */
+      animation: waterline 7s ease-in-out infinite alternate;
     }
     
     @keyframes waveFlow {
-      0% {
-        transform: translateX(0) scale(1.01, 1);
-      }
-      100% {
-        transform: translateX(-2%) scale(1.02, 1.01);
-      }
+      0% { transform: translateX(0) scale(1.01, 1); }
+      100% { transform: translateX(-3%) scale(1.03, 1.02); }
     }
     
-    @keyframes waveDrift {
+    @keyframes waveTop {
       0% {
-        transform: translateY(0) scale(1.01, 1);
-        d: path("M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z");
+        transform: translateY(0);
+        d: path("M0,40 C240,100 480,-10 720,40 C960,100 1200,-10 1440,40 L1440,160 L0,160 Z");
       }
       50% {
-        transform: translateY(-3px) scale(1.02, 1.01);
-        d: path("M0,75 C250,130 490,30 720,75 C950,130 1190,30 1440,75 L1440,160 L0,160 Z");
+        transform: translateY(-3px);
+        d: path("M0,35 C250,95 490,-5 720,35 C950,95 1190,-5 1440,35 L1440,160 L0,160 Z");
       }
       100% {
-        transform: translateY(3px) scale(0.99, 0.99);
-        d: path("M0,85 C230,150 470,10 720,85 C970,150 1210,10 1440,85 L1440,160 L0,160 Z");
+        transform: translateY(3px);
+        d: path("M0,45 C230,105 470,-15 720,45 C970,105 1210,-15 1440,45 L1440,160 L0,160 Z");
       }
     }
     
-    @keyframes waveRipple {
+    @keyframes waveMiddle {
       0% {
-        transform: translateX(0) translateY(0);
+        transform: translateX(-2%) translateY(0);
+        d: path("M-200,70 C40,130 280,10 520,70 C760,130 1000,10 1240,70 C1480,130 1720,10 1960,70 L1960,160 L-200,160 Z");
+      }
+      25% {
+        transform: translateX(-1%) translateY(-4px);
+        d: path("M-200,65 C50,125 290,15 530,65 C770,125 1010,15 1250,65 C1490,125 1730,15 1970,65 L1970,160 L-200,160 Z");
+      }
+      50% {
+        transform: translateX(0%) translateY(0);
+        d: path("M-200,75 C30,135 270,5 510,75 C750,135 990,5 1230,75 C1470,135 1710,5 1950,75 L1950,160 L-200,160 Z");
+      }
+      75% {
+        transform: translateX(1%) translateY(4px);
+        d: path("M-200,68 C20,140 260,0 500,68 C740,140 980,0 1220,68 C1460,140 1700,0 1940,68 L1940,160 L-200,160 Z");
+      }
+      100% {
+        transform: translateX(2%) translateY(0);
+        d: path("M-200,72 C60,130 300,20 540,72 C780,130 1020,20 1260,72 C1500,130 1740,20 1980,72 L1980,160 L-200,160 Z");
+      }
+    }
+    
+    @keyframes waveBottom {
+      0% {
+        transform: translateX(1%) translateY(0);
         d: path("M0,100 C200,60 400,140 600,100 C800,60 1000,140 1200,100 C1300,80 1380,110 1440,100 L1440,160 L0,160 Z");
       }
       33% {
@@ -448,7 +473,7 @@
         d: path("M0,102 C190,65 410,135 610,98 C790,65 990,135 1190,102 C1290,82 1390,108 1440,102 L1440,160 L0,160 Z");
       }
       100% {
-        transform: translateX(0) translateY(0);
+        transform: translateX(-1%) translateY(0);
         d: path("M0,100 C200,60 400,140 600,100 C800,60 1000,140 1200,100 C1300,80 1380,110 1440,100 L1440,160 L0,160 Z");
       }
     }
@@ -459,39 +484,36 @@
         opacity: 0.25;
       }
       50% {
-        transform: translateX(-1.5%) translateY(-1px);
-        opacity: 0.35;
+        transform: translateX(-2%) translateY(-1px);
+        opacity: 0.4;
       }
       100% {
-        transform: translateX(1.5%) translateY(1px);
+        transform: translateX(2%) translateY(1px);
         opacity: 0.15;
       }
     }
     
-    /* Optional: Add a subtle shimmer effect */
+    /* Gradient shimmer */
     @keyframes gradientShift {
-      0% {
-        stop-color: #036ba8;
-        stop-opacity: 0.12;
-      }
-      50% {
-        stop-color: #3f9fd9;
-        stop-opacity: 0.18;
-      }
-      100% {
-        stop-color: #036ba8;
-        stop-opacity: 0.12;
-      }
+      0% { stop-color: #036ba8; stop-opacity: 0.12; }
+      50% { stop-color: #4aa3df; stop-opacity: 0.2; }
+      100% { stop-color: #036ba8; stop-opacity: 0.12; }
     }
     
-    /* Add this if you want the gradient to shift colors subtly */
     .wave-section stop {
-      animation: gradientShift 10s ease-in-out infinite;
+      animation: gradientShift 8s ease-in-out infinite;
     }
     
     .wave-section stop:nth-of-type(2) {
-      animation-delay: -3s;
+      animation-delay: -2s;
     }
+    
+    .wave-section stop:nth-of-type(3) {
+      animation-delay: -4s;
+    }
+
+
+
     /* ── Footer ── */
     footer {
       width: 100%;
@@ -563,21 +585,37 @@
     <div class="wave-section" aria-hidden="true">
       <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
-          <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="#036ba8" stop-opacity="0.12"/>
-            <stop offset="50%"  stop-color="#54b4e8" stop-opacity="0.22"/>
-            <stop offset="100%" stop-color="#036ba8" stop-opacity="0.12"/>
+          <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#036ba8" stop-opacity="0.1"/>
+            <stop offset="50%"  stop-color="#54b4e8" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#036ba8" stop-opacity="0.1"/>
+          </linearGradient>
+          <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#036ba8" stop-opacity="0.06"/>
+            <stop offset="50%"  stop-color="#7ac4f0" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#036ba8" stop-opacity="0.06"/>
+          </linearGradient>
+          <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#036ba8" stop-opacity="0.04"/>
+            <stop offset="50%"  stop-color="#9ad0f5" stop-opacity="0.1"/>
+            <stop offset="100%" stop-color="#036ba8" stop-opacity="0.04"/>
           </linearGradient>
         </defs>
-        <!-- back wave -->
-        <path d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z" fill="url(#waveGrad)"/>
-        <!-- front wave -->
-        <path d="M0,100 C200,60 400,140 600,100 C800,60 1000,140 1200,100 C1300,80 1380,110 1440,100 L1440,160 L0,160 Z" fill="#036ba8" fill-opacity="0.08"/>
-        <!-- subtle waterline -->
+        
+        <!-- Wave 1 - Top (highest, most transparent) -->
+        <path d="M0,40 C240,100 480,-10 720,40 C960,100 1200,-10 1440,40 L1440,160 L0,160 Z" fill="url(#waveGrad1)"/>
+        
+        <!-- Wave 2 - Middle (extends beyond viewport) -->
+        <path d="M-200,70 C40,130 280,10 520,70 C760,130 1000,10 1240,70 C1480,130 1720,10 1960,70 L1960,160 L-200,160 Z" fill="url(#waveGrad2)"/>
+        
+        <!-- Wave 3 - Bottom (front, least transparent) -->
+        <path d="M0,100 C200,60 400,140 600,100 C800,60 1000,140 1200,100 C1300,80 1380,110 1440,100 L1440,160 L0,160 Z" fill="url(#waveGrad3)"/>
+        
+        <!-- Waterline -->
         <path d="M0,108 C360,90 720,126 1080,108 C1260,99 1380,112 1440,108" stroke="#036ba8" stroke-width="1" stroke-opacity="0.25" fill="none"/>
       </svg>
     </div>
-
+    
     <!-- Beach / resort icon strip -->
     <div class="icon-strip" aria-hidden="true">
       <i class="fas fa-umbrella-beach"></i>
